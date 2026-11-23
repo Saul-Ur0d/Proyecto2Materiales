@@ -1,0 +1,10 @@
+
+# Dependencias de los scripts Python 01–05.
+# Sin versiones fijadas: pip resuelve versiones compatibles con el entorno.
+pandas
+numpy
+scipy
+matplotlib
+seaborn
+
+# Plotly.js se carga por CDN en el dashboard HTML; no requiere un paquete Python.
