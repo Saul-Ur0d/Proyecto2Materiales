@@ -68,7 +68,7 @@ python src/05_generar_dashboard_html.py
 
 Los scripts analíticos (02–04) usan **UTS/YS corregidos** por defecto y permiten `--valores originales`. El parámetro `--anomalias` admite `resaltar` (predeterminado), `excluir` e `incluir`. El script 05 también permite configurar esos valores iniciales, sin impedir que el visitante cambie los filtros en el navegador.
 
-## Publicación en GitHub Pages y Google Classroom
+## Publicación en GitHub Pages
 
 El HTML en `outputs/index.html` se puede abrir directamente en el navegador. Para publicarlo desde la carpeta `docs/` de GitHub Pages:
 
@@ -87,8 +87,6 @@ El HTML en `outputs/index.html` se puede abrir directamente en el navegador. Par
    ```
 
 3. En GitHub, entra a **Settings → Pages → Build and deployment**. Selecciona **Deploy from a branch**, rama **`main`**, carpeta **`/docs`** y guarda los cambios.
-4. Cuando GitHub publique el sitio, copia la dirección que muestra Pages (normalmente `https://USUARIO.github.io/NOMBRE-REPOSITORIO/`) y agrégala como **enlace** en Google Classroom. Se podrá abrir en otra pestaña.
-
 También puedes generar `index.html` en la raíz con `--copiar raiz` y elegir `/(root)` en Pages. `outputs/` no es una opción directa de publicación al desplegar desde una rama. Para actualizar el sitio, vuelve a ejecutar el script 05 y sube el nuevo HTML.
 
 El dashboard **incrusta los datos en el propio HTML** y no requiere servidor Python. Antes de publicarlo, verifica que puedes compartir el dataset. Guía oficial: [Configuración de GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
