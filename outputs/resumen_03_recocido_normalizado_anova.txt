@@ -1,0 +1,281 @@
+================================================================================================
+RESUMEN 03 · RECOCIDO, NORMALIZADO Y ANOVA
+================================================================================================
+Valores de resistencia: corregidos | Anomalías: resaltar | α = 0.05 | n mínimo por grupo = 3
+Registros de recocido/normalizado: 63 de 190 (en el análisis: 63); con flag_anomalia: 5
+
+================================================================================================
+1. DIAGNÓSTICO DE LIMITACIONES DE LOS DATOS
+================================================================================================
+Grupos (registros, grados, tipo de proceso, %C, T de tratamiento):
+  Annealed                 n=20 | Térmico puro                | %C 0.37 (0.10-0.60) | aleados 95 % | T media 834 °C | flags 2 | atípicos IQR 0
+  Normalized               n=20 | Térmico puro                | %C 0.37 (0.10-0.60) | aleados 95 % | T media 880 °C | flags 3 | atípicos IQR 1
+  Annealed + Cold drawn    n= 9 | Térmico + estirado en frío  | %C 0.48 (0.40-0.55) | aleados 0 % | T media NA | flags 0 | atípicos IQR 4
+  Spheroidized annealed    n=12 | Térmico + estirado en frío  | %C 0.79 (0.60-0.96) | aleados 0 % | T media NA | flags 0 | atípicos IQR 5
+  Normalized + Cold drawn  n= 2 | Térmico + estirado en frío  | %C 0.43 (0.43-0.43) | aleados 0 % | T media NA | flags 0 | atípicos IQR 0
+
+  L1 · Tamaños de muestra desiguales: Annealed = 20, Normalized = 20, Annealed + Cold drawn =
+  9, Spheroidized annealed = 12, Normalized + Cold drawn = 2 (razón máx./mín. = 10.0).
+  Normalized + Cold drawn tiene n = 2: no admite ninguna prueba estadística.
+  L2 · Mezcla de tratamiento térmico puro con estirado en frío: 40 registros son térmicos
+  puros y 23 (37 %) incluyen estirado en frío. Condiciones combinadas presentes: 'Annealed,
+  cold drawn'; 'Spheroidized annealed, cold drawn'; 'Normalized, cold drawn'. El grupo
+  'Spheroidized annealed' parece solo térmico por su nombre, pero todos sus registros están
+  estirados en frío.
+  L3 · Familias SAE distintas: Annealed 95 % aleados, Normalized 95 % aleados, Annealed + Cold
+  drawn 0 % aleados, Spheroidized annealed 0 % aleados, Normalized + Cold drawn 0 % aleados.
+  Los grupos térmicos puros son aceros aleados 3xxx-9xxx (más 1340), mientras los combinados
+  son 10xx/15xx. Además el %C de Spheroidized annealed (0.60-0.97) casi no se solapa con el de
+  los demás: no hay soporte común para separar efecto del tratamiento y efecto del carbono.
+  L4 · Temperatura de tratamiento: la T media de normalizado (880 °C) supera a la de recocido
+  (834 °C): la comparación recocido-normalizado mide el ciclo completo (temperatura +
+  velocidad de enfriamiento), no solo la velocidad de enfriamiento.
+  L5 · Anomalías y atípicos: 5 registros del foco tienen flag_anomalia (#147 SAE 4140
+  (Annealed), #149 SAE 4150 (Normalized), #154 SAE 4340 (Normalized), #189 SAE 9310
+  (Normalized), #190 SAE 9310 (Annealed)). Atípicos por 1.5×IQR (grupos con n ≥ 6): 10 (4419
+  Elongación en Normalized, 1045 UTS en Annealed + Cold drawn, 1045 Dureza Brinell en Annealed
+  + Cold drawn, 1045 Elongación en Annealed + Cold drawn, 1046 Elongación en Annealed + Cold
+  drawn, 1060 Dureza Brinell en Spheroidized annealed, 1064 Dureza Brinell en Spheroidized
+  annealed, 1065 Dureza Brinell en Spheroidized annealed, 1090 Dureza Brinell en Spheroidized
+  annealed, 1095 Dureza Brinell en Spheroidized annealed). En varios casos la anomalía afecta
+  solo a una columna (p. ej. ksi o HRB) y no a las variables analizadas; ver sensibilidad en
+  la sección 5.
+  L6 · Valores sin variabilidad (tabulados): Spheroidized annealed: Elongación (%); Normalized
+  + Cold drawn: Dureza Brinell (HB); Elongación (%). Un valor idéntico en todos los grados
+  sugiere un dato tabulado/redondeado, no una medición, y vuelve incalculables Shapiro y
+  Levene en esos grupos.
+  L7 · Los datos son valores nominales de tablas SAE (un renglón por grado, sin réplicas): no
+  hay variabilidad de ensayo y la independencia es solo aproximada.
+
+================================================================================================
+2. EXPLORACIÓN DESCRIPTIVA (media ± desv. est.)
+================================================================================================
+  Annealed                 (n=20) UTS 653±97 | YS 400±57 | HB 188±29 | Elong 24.4±4.4
+  Normalized               (n=20) UTS 860±195 | YS 550±134 | HB 249±55 | Elong 20.8±5.3
+  Annealed + Cold drawn    (n= 9) UTS 642±26 | YS 545±26 | HB 186±8 | Elong 10.4±0.9
+  Spheroidized annealed    (n=12) UTS 660±28 | YS 509±21 | HB 191±5 | Elong 10.0±0.0
+  Normalized + Cold drawn  (n= 2) UTS 592±11 | YS 510±7 | HB 179±0 | Elong 12.0±0.0
+
+Tendencia con el %C dentro de cada grupo (pendiente por +0.10 %C; † = poco informativa):
+  Annealed                 UTS +31.1 (r=+0.46) | YS -7.8 (r=-0.20) | HB +14.5 (r=+0.67) | Elong -1.4 (r=-0.47)
+  Normalized               UTS +85.7 (r=+0.63) | YS +58.7 (r=+0.63) | HB +29.6 (r=+0.71) | Elong -2.1 (r=-0.56)
+  Annealed + Cold drawn    UTS +21.3 (r=+0.34) | YS +14.2 (r=+0.23) | HB +11.2 (r=+0.58) | Elong -0.5 (r=-0.25)
+  Spheroidized annealed    UTS +22.5 (r=+0.92) | YS +16.4 (r=+0.89) | HB +3.4 (r=+0.89) | Elong NA†
+  Normalized + Cold drawn  UTS NA† | YS NA† | HB NA† | Elong NA†
+  Lectura: dentro de cada grupo, más %C implica más perlita/cementita (o carburos), por lo que
+  suben UTS, YS y dureza y baja la elongación, siempre que el rango de %C del grupo sea
+  amplio. Los grupos † no permiten separar el efecto del carbono.
+
+================================================================================================
+3. ANOVA, SUPUESTOS Y PRUEBAS DE RESPALDO POR DISEÑO
+================================================================================================
+
+D1 · Annealed vs Normalized
+  Grupos: Annealed (n=20) | Normalized (n=20)
+  VEREDICTO DE VALIDEZ: VÁLIDO CON RESERVAS
+     · diseño emparejado (mismos grados en ambos grupos): el ANOVA independiente ignora el
+       emparejamiento; la inferencia correcta es la prueba pareada
+     · valores nominales de tabla, un renglón por grado (independencia aproximada)
+  UTS (MPa)              ANOVA F(1, 38) = 18.07, p <0.001, η² = 0.32 (grande), ω² = 0.30
+      Normalidad (Shapiro por grupo): Annealed: 0.473; Normalized: 0.939 -> se cumple
+      Homogeneidad de varianzas (Levene): p 0.017 -> NO se cumple
+      Respaldo: Welch F = 18.07 (p <0.001); Kruskal-Wallis H = 11.62, p <0.001, ε² = 0.30
+      -> Prueba recomendada: ANOVA de Welch; p = <0.001, p Holm = <0.001 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  YS (MPa)               ANOVA F(1, 38) = 21.33, p <0.001, η² = 0.36 (grande), ω² = 0.34
+      Normalidad (Shapiro por grupo): Annealed: 0.369; Normalized: 0.717 -> se cumple
+      Homogeneidad de varianzas (Levene): p 0.003 -> NO se cumple
+      Respaldo: Welch F = 21.33 (p <0.001); Kruskal-Wallis H = 13.15, p <0.001, ε² = 0.34
+      -> Prueba recomendada: ANOVA de Welch; p = <0.001, p Holm = <0.001 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  Dureza Brinell (HB)    ANOVA F(1, 36) = 18.08, p <0.001, η² = 0.33 (grande), ω² = 0.31
+      Normalidad (Shapiro por grupo): Annealed: 0.036; Normalized: 0.979 -> NO se cumple
+      Homogeneidad de varianzas (Levene): p 0.018 -> NO se cumple
+      Respaldo: Welch F = 18.08 (p <0.001); Kruskal-Wallis H = 11.00, p <0.001, ε² = 0.30
+      -> Prueba recomendada: Kruskal-Wallis; p = <0.001, p Holm = 0.002 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  Elongación (%)         ANOVA F(1, 38) = 5.38, p 0.026, η² = 0.12 (mediano), ω² = 0.10
+      Normalidad (Shapiro por grupo): Annealed: 0.109; Normalized: 0.962 -> se cumple
+      Homogeneidad de varianzas (Levene): p 0.652 -> se cumple
+      Respaldo: Welch F = 5.38 (p 0.026); Kruskal-Wallis H = 4.51, p 0.034, ε² = 0.12
+      -> Prueba recomendada: ANOVA clásico; p = 0.026, p Holm = 0.026 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+
+D2 · Annealed vs Spheroidized annealed vs Normalized
+  Grupos: Annealed (n=20) | Spheroidized annealed (n=12) | Normalized (n=20)
+  VEREDICTO DE VALIDEZ: NO VÁLIDO PARA ATRIBUIR EL EFECTO AL TRATAMIENTO
+     · %C medio distinto entre grupos (diferencia máxima 0.42 %C)
+     · rangos de %C casi sin solapamiento (solapamiento 0%): no hay soporte común
+     · composición por familia SAE distinta entre grupos (distancia 1.00)
+     · mezcla de tratamiento térmico puro con estirado en frío entre grupos
+  ! Los resultados siguientes son DESCRIPTIVOS: la diferencia entre grupos no puede
+    atribuirse al tratamiento térmico.
+  UTS (MPa)              ANOVA F(2, 49) = 13.87, p <0.001, η² = 0.36 (grande), ω² = 0.33
+      Normalidad (Shapiro por grupo): Annealed: 0.473; Spheroidized annealed: 0.342; Normalized: 0.939 -> se cumple
+      Homogeneidad de varianzas (Levene): p <0.001 -> NO se cumple
+      Respaldo: Welch F = 10.14 (p <0.001); Kruskal-Wallis H = 14.27, p <0.001, ε² = 0.28
+      -> Prueba recomendada: ANOVA de Welch; p = <0.001, p Holm = <0.001 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  YS (MPa)               ANOVA F(2, 49) = 14.24, p <0.001, η² = 0.37 (grande), ω² = 0.34
+      Normalidad (Shapiro por grupo): Annealed: 0.369; Spheroidized annealed: 0.780; Normalized: 0.717 -> se cumple
+      Homogeneidad de varianzas (Levene): p <0.001 -> NO se cumple
+      Respaldo: Welch F = 31.32 (p <0.001); Kruskal-Wallis H = 22.57, p <0.001, ε² = 0.44
+      -> Prueba recomendada: ANOVA de Welch; p = <0.001, p Holm = <0.001 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  Dureza Brinell (HB)    ANOVA F(2, 47) = 14.03, p <0.001, η² = 0.37 (grande), ω² = 0.34
+      Normalidad (Shapiro por grupo): Annealed: 0.036; Spheroidized annealed: 0.015; Normalized: 0.979 -> NO se cumple
+      Homogeneidad de varianzas (Levene): p <0.001 -> NO se cumple
+      Respaldo: Welch F = 10.06 (p <0.001); Kruskal-Wallis H = 14.03, p <0.001, ε² = 0.29
+      -> Prueba recomendada: Kruskal-Wallis; p = <0.001, p Holm = <0.001 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  Elongación (%)         ANOVA F(2, 49) = 43.71, p <0.001, η² = 0.64 (grande), ω² = 0.62
+      Normalidad (Shapiro por grupo): Annealed: 0.109; Spheroidized annealed: NA; Normalized: 0.962  [no verificable: Spheroidized annealed (valores constantes)] -> no verificable
+      Homogeneidad de varianzas (Levene): p <0.001 -> NO se cumple
+      Respaldo: Welch F = NA (p NA); Kruskal-Wallis H = 30.24, p <0.001, ε² = 0.59
+      -> Prueba recomendada: Kruskal-Wallis; p = <0.001, p Holm = <0.001 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  Comparaciones por pares (método según supuestos; descriptivas si el diseño es NO VÁLIDO):
+    UTS (MPa)              Annealed vs Spheroidized annealed: diferencia = -6.4 (Tukey HSD, p ajustado 0.991)
+    UTS (MPa)              Annealed vs Normalized: diferencia = -206.6 (Tukey HSD, p ajustado <0.001)
+    UTS (MPa)              Spheroidized annealed vs Normalized: diferencia = -200.2 (Tukey HSD, p ajustado <0.001)
+    YS (MPa)               Annealed vs Spheroidized annealed: diferencia = -109.5 (Tukey HSD, p ajustado 0.005)
+    YS (MPa)               Annealed vs Normalized: diferencia = -150.1 (Tukey HSD, p ajustado <0.001)
+    YS (MPa)               Spheroidized annealed vs Normalized: diferencia = -40.6 (Tukey HSD, p ajustado 0.446)
+    Dureza Brinell (HB)    Annealed vs Spheroidized annealed: diferencia = +5.0 (Mann-Whitney + Holm, p ajustado 0.154)
+    Dureza Brinell (HB)    Annealed vs Normalized: diferencia = -58.0 (Mann-Whitney + Holm, p ajustado 0.003)
+    Dureza Brinell (HB)    Spheroidized annealed vs Normalized: diferencia = -63.0 (Mann-Whitney + Holm, p ajustado 0.011)
+    Elongación (%)         Annealed vs Spheroidized annealed: diferencia = +12.8 (Mann-Whitney + Holm, p ajustado <0.001)
+    Elongación (%)         Annealed vs Normalized: diferencia = +2.0 (Mann-Whitney + Holm, p ajustado 0.035)
+    Elongación (%)         Spheroidized annealed vs Normalized: diferencia = -10.8 (Mann-Whitney + Holm, p ajustado <0.001)
+
+D3 · Annealed vs Annealed + Cold drawn
+  Grupos: Annealed (n=20) | Annealed + Cold drawn (n=9)
+  VEREDICTO DE VALIDEZ: NO VÁLIDO PARA ATRIBUIR EL EFECTO AL TRATAMIENTO
+     · %C medio distinto entre grupos (diferencia máxima 0.12 %C)
+     · rangos de %C casi sin solapamiento (solapamiento 30%): no hay soporte común
+     · composición por familia SAE distinta entre grupos (distancia 0.95)
+     · mezcla de tratamiento térmico puro con estirado en frío entre grupos
+  ! Los resultados siguientes son DESCRIPTIVOS: la diferencia entre grupos no puede
+    atribuirse al tratamiento térmico.
+  UTS (MPa)              ANOVA F(1, 27) = 0.11, p 0.744, η² = 0.00 (despreciable), ω² = 0.00
+      Normalidad (Shapiro por grupo): Annealed: 0.473; Annealed + Cold drawn: 0.229 -> se cumple
+      Homogeneidad de varianzas (Levene): p 0.014 -> NO se cumple
+      Respaldo: Welch F = 0.22 (p 0.644); Kruskal-Wallis H = 1.13, p 0.289, ε² = 0.04
+      -> Prueba recomendada: ANOVA de Welch; p = 0.644, p Holm = 0.644 (no significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  YS (MPa)               ANOVA F(1, 27) = 53.02, p <0.001, η² = 0.66 (grande), ω² = 0.64
+      Normalidad (Shapiro por grupo): Annealed: 0.369; Annealed + Cold drawn: 0.976 -> se cumple
+      Homogeneidad de varianzas (Levene): p 0.079 -> se cumple
+      Respaldo: Welch F = 89.97 (p <0.001); Kruskal-Wallis H = 18.02, p <0.001, ε² = 0.64
+      -> Prueba recomendada: ANOVA clásico; p = <0.001, p Holm = <0.001 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  Dureza Brinell (HB)    ANOVA F(1, 26) = 0.02, p 0.896, η² = 0.00 (despreciable), ω² = 0.00
+      Normalidad (Shapiro por grupo): Annealed: 0.036; Annealed + Cold drawn: 0.592 -> NO se cumple
+      Homogeneidad de varianzas (Levene): p 0.070 -> se cumple
+      Respaldo: Welch F = 0.03 (p 0.857); Kruskal-Wallis H = 1.94, p 0.163, ε² = 0.07
+      -> Prueba recomendada: Kruskal-Wallis; p = 0.163, p Holm = 0.327 (no significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+  Elongación (%)         ANOVA F(1, 27) = 87.62, p <0.001, η² = 0.76 (grande), ω² = 0.75
+      Normalidad (Shapiro por grupo): Annealed: 0.109; Annealed + Cold drawn: <0.001 -> NO se cumple
+      Homogeneidad de varianzas (Levene): p 0.006 -> NO se cumple
+      Respaldo: Welch F = 185.44 (p <0.001); Kruskal-Wallis H = 18.27, p <0.001, ε² = 0.65
+      -> Prueba recomendada: Kruskal-Wallis; p = <0.001, p Holm = <0.001 (significativo a α = 0.05); ANOVA y Kruskal-Wallis coinciden
+
+D4 · Normalized vs Normalized + Cold drawn
+  Grupos: Normalized (n=20) | Normalized + Cold drawn (n=2)
+  VEREDICTO DE VALIDEZ: NO EVALUABLE
+     · algún grupo tiene n < 3 (n mínimo = 2)
+
+================================================================================================
+4. ANÁLISIS PAREADO: Annealed vs Normalized en el mismo grado SAE
+================================================================================================
+  Pares disponibles: 20 grados (Normalized - Annealed). El emparejamiento elimina la variabilidad entre grados (composición idéntica).
+  UTS (MPa)              Δ medio =  +206.7 (IC95 % +145.4 a +267.9; +31 %) | dz = 1.58 | suben 20/20 | Shapiro(Δ) p 0.063 -> t pareada, p <0.001, p Holm <0.001
+  YS (MPa)               Δ medio =  +150.2 (IC95 % +88.2 a +212.1; +40 %) | dz = 1.13 | suben 17/20 | Shapiro(Δ) p 0.193 -> t pareada, p <0.001, p Holm <0.001
+  Dureza Brinell (HB)    Δ medio =   +60.8 (IC95 % +41.9 a +79.7; +32 %) | dz = 1.55 | suben 18/19 | Shapiro(Δ) p 0.854 -> t pareada, p <0.001, p Holm <0.001
+  Elongación (%)         Δ medio =    -3.6 (IC95 % -5.5 a -1.6; -14 %) | dz = -0.87 | suben 5/20 | Shapiro(Δ) p 0.357 -> t pareada, p <0.001, p Holm <0.001
+  Mayores saltos de UTS al normalizar: 4340 (+537 MPa), 4150 (+427 MPa), 4140 (+365 MPa). Son
+  aceros de alta templabilidad: el enfriamiento al aire puede formar bainita (y algo de
+  martensita), por lo que el efecto no es solo 'perlita más fina' y depende del grado.
+  La T de normalizado excede a la de recocido en promedio +47 °C en estos pares: el efecto
+  medido es del ciclo completo (temperatura de austenización + velocidad de enfriamiento).
+  Relación entre el salto de UTS y el %C: ρ de Spearman = +0.66 (p 0.001); un %C mayor tiende
+  a acompañarse de mayor templabilidad y de un mayor efecto del normalizado.
+
+================================================================================================
+5. SENSIBILIDAD A ANOMALÍAS (D1: todos los registros vs sin los marcados)
+================================================================================================
+  todos          UTS (MPa)              N=40 F=18.07 p <0.001 η²=0.32 | pareado: n=20, Δ=+206.7, p <0.001
+  todos          YS (MPa)               N=40 F=21.33 p <0.001 η²=0.36 | pareado: n=20, Δ=+150.2, p <0.001
+  todos          Dureza Brinell (HB)    N=38 F=18.08 p <0.001 η²=0.33 | pareado: n=19, Δ=+60.8, p <0.001
+  todos          Elongación (%)         N=40 F=5.38 p 0.026 η²=0.12 | pareado: n=20, Δ=-3.6, p <0.001
+  sin_anomalias  UTS (MPa)              N=35 F=14.90 p <0.001 η²=0.31 | pareado: n=16, Δ=+169.6, p <0.001
+  sin_anomalias  YS (MPa)               N=35 F=17.44 p <0.001 η²=0.35 | pareado: n=16, Δ=+118.7, p 0.001
+  sin_anomalias  Dureza Brinell (HB)    N=35 F=14.78 p <0.001 η²=0.31 | pareado: n=16, Δ=+48.8, p <0.001
+  sin_anomalias  Elongación (%)         N=35 F=3.25 p 0.081 η²=0.09 | pareado: n=16, Δ=-2.9, p 0.007
+
+================================================================================================
+6. INTERPRETACIÓN METALÚRGICA
+================================================================================================
+  - Recocido (Annealed): calentamiento a austenización y enfriamiento lento en horno; la
+    transformación ocurre cerca del equilibrio y da perlita gruesa (mayor espaciamiento
+    interlaminar) y grano más grande: menor resistencia y dureza, mayor ductilidad.
+  - Normalizado (Normalized): austenización y enfriamiento al aire, más rápido que en horno;
+    produce perlita más fina y grano austenítico refinado y homogéneo: más UTS, YS y dureza,
+    con menos elongación que el recocido de la misma composición.
+  - Aceros de alta templabilidad (4340, 4150, 4140, 8650...): con Cr, Mo y Ni la curva de
+    enfriamiento al aire puede cruzar el campo de bainita (e incluso martensita parcial). Por
+    eso el salto al normalizar puede ser mucho mayor que el esperable solo por perlita fina:
+    la diferencia depende del grado.
+  - Esferoidizado (Spheroidized annealed): la cementita se transforma de láminas a glóbulos en
+    matriz ferrítica; estructura blanda y de buena maquinabilidad. En este dataset todos sus
+    registros están además estirados en frío (endurecimiento por deformación: ↑ dislocaciones,
+    ↑ YS, ↓ elongación), así que no representan la microestructura esferoidizada pura.
+  - Estirado en frío (Cold drawn): se añade a una base recocida o normalizada y eleva YS y UTS
+    a costa de elongación; por eso 'Annealed + Cold drawn' y 'Normalized + Cold drawn' no son
+    comparables con los tratamientos térmicos puros.
+
+================================================================================================
+7. CUÁNDO ES VÁLIDO EL ANOVA Y QUÉ RESERVAS TENER
+================================================================================================
+  - Supuestos del ANOVA de un factor: (1) observaciones independientes, (2) residuos
+    aproximadamente normales y (3) varianzas homogéneas entre grupos.
+  - Shapiro-Wilk con n pequeño (< 8) tiene muy poca potencia: 'no rechazar la normalidad' no
+    la demuestra. Con grupos balanceados y n ≥ 15-20 el ANOVA es robusto a desviaciones
+    moderadas de normalidad; con grupos desiguales o varianzas distintas conviene Welch.
+  - Kruskal-Wallis (respaldo) no supone normalidad, pero compara rangos/distribuciones y no
+    medias, y también exige independencia.
+  - El valor p depende del tamaño de muestra: con n pequeño un efecto grande puede no ser
+    significativo y con n grande uno trivial sí; por eso se reporta eta² (≥ 0.01 pequeño, ≥
+    0.06 mediano, ≥ 0.14 grande).
+  - Aquí cada renglón es un valor nominal de tabla SAE de un grado distinto (no una probeta):
+    los grados vecinos son parecidos entre sí, de modo que la independencia se cumple solo de
+    forma aproximada y los valores p tienden a ser optimistas.
+  - Se ajusta por Holm entre las 4 variables mecánicas de cada diseño (comparaciones
+    múltiples).
+  - Un ANOVA calculable no equivale a un ANOVA interpretable: si los grupos difieren también
+    en %C, familia SAE o estirado en frío, la diferencia observada no puede atribuirse al
+    tratamiento térmico.
+
+Aplicación a este dataset:
+  - D1 (VÁLIDO CON RESERVAS): es la única comparación sin confusión. Como los 20 grados
+    aparecen en ambos tratamientos, la prueba pareada es la inferencia apropiada y el ANOVA
+    independiente es una aproximación conservadora (pierde potencia porque la variabilidad
+    entre grados es enorme frente al cambio dentro de cada grado).
+  - D2 (NO VÁLIDO PARA ATRIBUIR EL EFECTO AL TRATAMIENTO): el ANOVA se calcula, pero
+    Spheroidized annealed difiere en %C, familia SAE y estirado en frío; su η² no es efecto
+    del esferoidizado.
+  - D3 (NO VÁLIDO PARA ATRIBUIR EL EFECTO AL TRATAMIENTO): añadir estirado en frío coincide
+    con otro %C y otra familia; no se puede aislar.
+  - D4 (NO EVALUABLE): n = 2 en Normalized + Cold drawn.
+  - Para aislar el efecto de la deformación en frío a composición idéntica se usó el análisis
+    por pares Hot rolled vs Cold drawn del script 02 (50 pares del mismo grado).
+
+================================================================================================
+8. ARCHIVOS GENERADOS
+================================================================================================
+  - outputs\tablas\tabla_03_diagnostico_grupos.csv
+  - outputs\tablas\tabla_03_estadisticas_grupos.csv
+  - outputs\tablas\tabla_03_tendencias_vs_carbono.csv
+  - outputs\tablas\tabla_03_atipicos.csv
+  - outputs\tablas\tabla_03_anova_supuestos.csv
+  - outputs\tablas\tabla_03_pares_recocido_normalizado.csv
+  - outputs\tablas\tabla_03_resumen_pares_recocido_normalizado.csv
+  - outputs\tablas\tabla_03_sensibilidad_anomalias.csv
+  - outputs\tablas\tabla_03_posthoc.csv
+  - outputs\figuras\fig03_01_diagnostico_limitaciones.png
+  - outputs\figuras\fig03_02_boxplots_recocido_normalizado.png
+  - outputs\figuras\fig03_03_tendencia_vs_carbono.png
+  - outputs\figuras\fig03_04_pares_recocido_normalizado_por_grado.png
+  - outputs\figuras\fig03_05_supuestos_qq.png
+  - outputs\figuras\fig03_06_resumen_anova_validez.png
+  - outputs\resumen_03_recocido_normalizado_anova.txt

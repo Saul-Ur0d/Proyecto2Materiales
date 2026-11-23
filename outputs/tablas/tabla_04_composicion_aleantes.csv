@@ -1,0 +1,21 @@
+﻿Familia_SAE,elemento,n_total_familia,n_con_dato,n_rango_completo,n_solo_min,n_solo_max,pct_cobertura,media_pct,mediana_pct,min_pct,max_pct,nota
+Carbono simple 10xx,Cr,87,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Carbono simple 10xx,Ni,87,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Carbono simple 10xx,Mo,87,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Carbono simple 10xx,Mn,87,87,87,0,0,100.0,0.6701149425287357,0.75,0.325,0.85,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Carbono simple 10xx,Si,87,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Resulfurados/Refosforados 11xx-12xx,Cr,34,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Resulfurados/Refosforados 11xx-12xx,Ni,34,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Resulfurados/Refosforados 11xx-12xx,Mo,34,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Resulfurados/Refosforados 11xx-12xx,Mn,34,34,34,0,0,100.0,0.9314705882352942,0.85,0.095,1.5,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Resulfurados/Refosforados 11xx-12xx,Si,34,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Alto Mn 13xx-15xx,Cr,19,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Alto Mn 13xx-15xx,Ni,19,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Alto Mn 13xx-15xx,Mo,19,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Alto Mn 13xx-15xx,Mn,19,19,19,0,0,100.0,1.435526315789474,1.5,1.225,1.75,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Alto Mn 13xx-15xx,Si,19,0,0,0,0,0.0,,,,,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Aleados 3xxx-9xxx,Cr,50,7,7,0,0,14.0,0.7428571428571429,0.65,0.5,1.2,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Aleados 3xxx-9xxx,Ni,50,7,7,0,0,14.0,1.5214285714285711,1.25,0.55,3.25,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Aleados 3xxx-9xxx,Mo,50,5,5,0,0,10.0,0.166,0.2,0.11499999999999999,0.2,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Aleados 3xxx-9xxx,Mn,50,50,50,0,0,100.0,0.7519999999999999,0.8,0.5,0.875,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio
+Aleados 3xxx-9xxx,Si,50,7,7,0,0,14.0,0.23928571428571427,0.25,0.22499999999999998,0.25,Composición nominal SAE; faltante no significa 0 %; límite aislado no es punto medio

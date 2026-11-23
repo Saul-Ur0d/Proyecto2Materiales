@@ -1,0 +1,6 @@
+﻿Condicion_Grupo,variable,unidad,n_10xx,n_aleados,media_10xx,media_aleados,diferencia_media_aleados_menos_10xx,diferencia_relativa_pct,mediana_10xx,mediana_aleados,diferencia_mediana,nota
+Todas,UTS (MPa),MPa,87,50,553.1034482758621,843.94,290.83655172413796,52.58266832917706,570.0,793.0,223.0,Contraste global confundido por proceso y composición; no causal
+Todas,YS (MPa),MPa,87,50,384.5977011494253,606.74,222.14229885057472,57.759653317393905,380.0,477.5,97.5,Contraste global confundido por proceso y composición; no causal
+Todas,Dureza Brinell (HB),HB,87,48,161.05747126436782,245.10416666666666,84.04669540229884,52.184288467028246,167.0,229.0,62.0,Contraste global confundido por proceso y composición; no causal
+Todas,Elongación (%),%,87,50,15.436781609195402,20.967999999999996,5.531218390804595,35.8314221891288,12.0,20.75,8.75,Contraste global confundido por proceso y composición; no causal
+Todas,Carbono (% masa),%C,87,50,0.441896551724138,0.3846,-0.057296551724138,-12.966055403823658,0.435,0.405,-0.02999999999999997,Contraste global confundido por proceso y composición; no causal

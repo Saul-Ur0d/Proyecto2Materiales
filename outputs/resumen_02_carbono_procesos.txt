@@ -1,0 +1,148 @@
+============================================================================================
+RESUMEN 02 · %C Y CONDICIONES DE PROCESAMIENTO
+============================================================================================
+Valores de resistencia : corregidos | Tratamiento de anomalías: resaltar
+Registros totales     : 190 | con flag_anomalia: 9 | en el análisis: 190
+Auditoría (script 01)  : 55 registros con hallazgos (anomalías, correcciones, avisos)
+Registros marcados:
+  #120  SAE 12L14  Hot rolled               C_MAX_IMPOSIBLE
+  #121  SAE 12L14  Cold drawn               C_MAX_IMPOSIBLE
+  #147  SAE 4140   Annealed                 ESCALA_YS_MPA_KSI, YS_MAYOR_UTS
+  #148  SAE 4140   Quenched & tempered      ESCALA_UTS_MPA_KSI
+  #149  SAE 4150   Normalized               ESCALA_UTS_MPA_KSI, YS_MAYOR_UTS
+  #154  SAE 4340   Normalized               ESCALA_UTS_MPA_KSI
+  #156  SAE 4340   Quenched & tempered      ESCALA_UTS_MPA_KSI
+  #189  SAE 9310   Normalized               DUREZA_ESCALA_NO_HB
+  #190  SAE 9310   Annealed                 DUREZA_ESCALA_NO_HB
+
+============================================================================================
+1. %C vs PROPIEDADES MECÁNICAS
+============================================================================================
+Base metalúrgica:
+  - En aceros hipoeutectoides (< ~0.77 %C) la microestructura es ferrita proeutectoide +
+    perlita. La fracción de perlita crece con el %C (regla de la palanca) y la perlita
+    (láminas alternadas de ferrita y cementita, Fe3C) es más dura y resistente que la
+    ferrita.
+  - Más cementita y menor espaciamiento interlaminar significan más obstáculos al
+    deslizamiento de dislocaciones: suben UTS, YS y dureza.
+  - Al disminuir la ferrita dúctil, baja la elongación (y la reducción de área).
+  - Cerca de 0.77 %C (eutectoide) la estructura es casi toda perlita; por encima
+    (hipereutectoides, p. ej. SAE 1095) aparece cementita proeutectoide en límite de
+    grano: sigue subiendo la dureza, pero fragiliza.
+  - La dispersión alrededor de la tendencia proviene de: aleantes (Mn, Cr, Mo, Ni),
+    condición de procesamiento, tamaño de barra y de que los datos son valores nominales
+    de tablas SAE.
+
+Resultados (todos los registros; pendiente = cambio por cada +0.10 %C):
+  UTS (MPa)              n=190  Pearson r=+0.52 (p <0.001)  Spearman ρ=+0.70  R²=0.27  pendiente=+51.9 MPa/0.1 %C  -> relación fuerte, consistente con lo esperado
+  YS (MPa)               n=190  Pearson r=+0.36 (p <0.001)  Spearman ρ=+0.52  R²=0.13  pendiente=+34.1 MPa/0.1 %C  -> relación moderada, consistente con lo esperado
+  Dureza Brinell (HB)    n=188  Pearson r=+0.55 (p <0.001)  Spearman ρ=+0.73  R²=0.30  pendiente=+15.9 HB/0.1 %C  -> relación fuerte, consistente con lo esperado
+  Elongación (%)         n=190  Pearson r=-0.59 (p <0.001)  Spearman ρ=-0.60  R²=0.35  pendiente=-1.7 p.p./0.1 %C  -> relación moderada, consistente con lo esperado
+
+Control metalúrgico (10xx · Hot rolled: misma familia y mismo proceso, solo varía el %C):
+  UTS (MPa)              n= 41  r=+0.99  ρ=+0.99  pendiente=+61.3 MPa/0.1 %C (IC95 % por 0.1 %C: +58.4 a +64.2)
+  YS (MPa)               n= 41  r=+0.99  ρ=+0.99  pendiente=+33.7 MPa/0.1 %C (IC95 % por 0.1 %C: +32.1 a +35.2)
+  Dureza Brinell (HB)    n= 41  r=+0.99  ρ=+0.99  pendiente=+18.9 HB/0.1 %C (IC95 % por 0.1 %C: +18.1 a +19.6)
+  Elongación (%)         n= 41  r=-0.95  ρ=-0.99  pendiente=-2.4 p.p./0.1 %C (IC95 % por 0.1 %C: -2.6 a -2.1)
+  Lectura: si las pendientes del control son más limpias (mayor R²) que las globales, la
+  dispersión global se debe a aleantes y proceso, no a ausencia de efecto del carbono.
+
+Verificación de coherencia UTS/HB: mediana = 3.44 MPa/HB (rango intercuartílico 3.39-3.49); referencia empírica en aceros ≈ 3.4-3.6. Registros fuera de 2.8-4.2: 1.
+
+Sensibilidad a anomalías (Δ al excluir registros con flag_anomalia):
+  UTS (MPa)              r: +0.521 -> +0.582 (Δ +0.061) | ρ: +0.703 -> +0.757 (Δ +0.053)
+  YS (MPa)               r: +0.358 -> +0.385 (Δ +0.027) | ρ: +0.518 -> +0.546 (Δ +0.028)
+  Dureza Brinell (HB)    r: +0.546 -> +0.578 (Δ +0.032) | ρ: +0.727 -> +0.741 (Δ +0.015)
+  Elongación (%)         r: -0.591 -> -0.608 (Δ -0.017) | ρ: -0.601 -> -0.620 (Δ -0.019)
+
+============================================================================================
+2. COMPARACIÓN ENTRE CONDICIONES DE PROCESAMIENTO
+============================================================================================
+Media ± desv. est. (n) por condición:
+  Hot rolled               (n=65) UTS 539±148 | YS 298±80 | HB 158±44 | Elong 18.6±6.1 | %C 0.39
+  Cold drawn               (n=50) UTS 543±117 | YS 454±99 | HB 158±34 | Elong 13.4±3.3 | %C 0.29
+  Annealed                 (n=20) UTS 653±97 | YS 400±57 | HB 188±29 | Elong 24.4±4.4 | %C 0.37
+  Annealed + Cold drawn    (n= 9) UTS 642±26 | YS 545±26 | HB 186±8 | Elong 10.4±0.9 | %C 0.48
+  Spheroidized annealed    (n=12) UTS 660±28 | YS 509±21 | HB 191±5 | Elong 10.0±0.0 | %C 0.79
+  Normalized               (n=20) UTS 860±195 | YS 550±134 | HB 249±55 | Elong 20.8±5.3 | %C 0.37
+  Normalized + Cold drawn  (n= 2) UTS 592±11 | YS 510±7 | HB 179±0 | Elong 12.0±0.0 | %C 0.43
+  Quenched & tempered      (n=12) UTS 1123±111 | YS 1028±123 | HB 328±31 | Elong 15.9±1.8 | %C 0.45
+
+Interpretación metalúrgica por condición:
+  - Hot rolled: Laminado en caliente con enfriamiento posterior al aire: ferrita + perlita
+    de grano moderado. Es la referencia 'base' de los aceros al carbono: sus propiedades
+    dependen sobre todo del %C.
+  - Cold drawn: Deformación plástica en frío (estirado) sobre barra laminada: sube
+    fuertemente la densidad de dislocaciones y su entrecruzamiento (endurecimiento por
+    deformación, sigma ∝ raíz de rho) y se alargan granos y perlita. Efecto típico: ↑↑ YS,
+    ↑ UTS (menos), ↓ elongación y reducción de área; aumenta la relación YS/UTS.
+  - Annealed: Recocido: enfriamiento lento en horno, transformación cercana al equilibrio.
+    Da perlita gruesa (mayor espaciamiento interlaminar), grano mayor y alivio de
+    tensiones: menor dureza y resistencia, mayor ductilidad que normalizado o temple.
+  - Annealed + Cold drawn: Recocido previo + estirado en frío: parte de una base blanda
+    (perlita gruesa/esferoidizada) que luego se endurece por deformación (↑ dislocaciones,
+    ↓ elongación).
+  - Spheroidized annealed: Recocido de esferoidización: la cementita pasa de láminas a
+    glóbulos (Fe3C) en matriz ferrítica. Menor interfaz y menor restricción al
+    deslizamiento: a igual %C es la estructura más blanda y de mejor
+    maquinabilidad/conformabilidad en aceros de alto %C. En este dataset TODOS los
+    registros son 'Spheroidized annealed, cold drawn' (estirado posterior que endurece por
+    deformación) y de %C alto, por lo que su dureza no es la mínima posible de esta
+    microestructura.
+  - Normalized: Normalizado: austenización y enfriamiento al aire (más rápido que en
+    horno). Produce perlita más fina y grano austenítico refinado y homogéneo: UTS, YS y
+    dureza mayores que el recocido a igual composición, con buena tenacidad.
+  - Normalized + Cold drawn: Base normalizada (perlita fina) + endurecimiento por
+    deformación: ↑ resistencia, ↓ ductilidad. n muy pequeño: solo orientativo.
+  - Quenched & tempered: Temple (aceite/agua) forma martensita (C sobresaturado, alta
+    densidad de dislocaciones); el revenido a 540 °C precipita carburos finos (Fe3C) en
+    matriz de ferrita ('martensita revenida'): alta resistencia y dureza con ductilidad y
+    tenacidad recuperadas. La templabilidad depende de los aleantes (Cr, Mo, Ni, Mn): en
+    este dataset son aceros aleados.
+
+Efecto del estirado en frío a composición idéntica (pares del mismo SAE Grade, Hot rolled -> Cold drawn):
+  UTS (MPa)              pares=50  Δ medio=  +62.0 (+13 %)  mediana=  +55.0  suben 50/50  Wilcoxon p <0.001  t pareado p <0.001
+  YS (MPa)               pares=50  Δ medio= +187.5 (+70 %)  mediana= +187.5  suben 50/50  Wilcoxon p <0.001  t pareado p <0.001
+  Dureza Brinell (HB)    pares=50  Δ medio=  +18.0 (+13 %)  mediana=  +16.0  suben 50/50  Wilcoxon p <0.001  t pareado p <0.001
+  Elongación (%)         pares=50  Δ medio=   -7.3 (-34 %)  mediana=   -7.5  suben 0/50  Wilcoxon p <0.001  t pareado p <0.001
+  Lectura: el aumento medio de YS (+188 MPa) supera al de UTS (+62 MPa), como se espera
+  del endurecimiento por deformación (sube la relación YS/UTS).
+
+Precaución al comparar los demás grupos:
+  - Cold drawn: %C medio 0.29 vs 0.39 en Hot rolled (Δ -0.10); parte de la diferencia en resistencia/dureza se debe al carbono, no al proceso.
+  - Spheroidized annealed: %C medio 0.79 vs 0.39 en Hot rolled (Δ +0.40); parte de la diferencia en resistencia/dureza se debe al carbono, no al proceso.
+  - Condiciones casi exclusivamente de aceros aleados: Annealed (95 %), Normalized (95 %),
+    Quenched & tempered (100 %). Su diferencia con Hot rolled/Cold drawn mezcla aleación y
+    proceso.
+
+============================================================================================
+3. LIMITACIONES
+============================================================================================
+  - Los datos son valores nominales/típicos de tablas SAE, no ensayos individuales: 'n' es
+    el número de renglones, no de probetas, y los grados vecinos (1010, 1012, 1015...) no
+    son independientes, por lo que los valores p son optimistas.
+  - C_pct es el promedio de los límites Min-Max de la especificación (no el %C real de una
+    colada); para 12 grados solo se dispone de C (Max).
+  - Proceso y composición están confundidos: recocido, normalizado y temple y revenido son
+    casi exclusivamente aceros aleados, mientras Hot rolled / Cold drawn cubren sobre todo
+    10xx-15xx. Comparar medias entre grupos mezcla efecto de aleación y efecto de proceso;
+    por eso se incluye el análisis por pares Hot rolled vs Cold drawn del mismo SAE Grade.
+  - No se registran diámetro de barra, velocidad de enfriamiento ni reducción en frío, que
+    modulan las propiedades.
+  - Correlación no implica causalidad; las regresiones lineales son descriptivas.
+
+============================================================================================
+4. ARCHIVOS GENERADOS
+============================================================================================
+  - data\processed\tabla_02_correlaciones_c_vs_propiedades.csv
+  - data\processed\tabla_02_estadisticas_por_condicion.csv
+  - data\processed\tabla_02_pares_hot_rolled_vs_cold_drawn.csv
+  - data\processed\tabla_02_resumen_pares_hot_rolled_vs_cold_drawn.csv
+  - data\processed\tabla_02_sensibilidad_anomalias.csv
+  - outputs\figuras\fig02_01_carbono_vs_propiedades.png
+  - outputs\figuras\fig02_02_carbono_10xx_hot_rolled_vs_cold_drawn.png
+  - outputs\figuras\fig02_03_propiedades_por_condicion.png
+  - outputs\figuras\fig02_04_pares_hot_rolled_vs_cold_drawn.png
+  - outputs\figuras\fig02_05_confusion_proceso_composicion.png
+  - outputs\figuras\fig02_06_heatmap_correlaciones_por_subgrupo.png
+  - outputs\resumen_02_carbono_procesos.txt

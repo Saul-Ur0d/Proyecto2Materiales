@@ -1,0 +1,172 @@
+===========================================================================================
+RESUMEN 04 · COMPARACIÓN SAE 10xx FRENTE A 3xxx-9xxx
+===========================================================================================
+Origen: data/processed/aceros_limpio.csv | resistencia: corregidos | anomalías: resaltar
+Total base: 190 | familias consideradas: 190 | marcados (base): 9 | registros utilizados: 190
+Auditoría detallada: 55 renglones de hallazgos (incluye avisos y correcciones).
+La bandera de anomalía es por registro, no por propiedad: excluir elimina la fila completa.
+
+===========================================================================================
+1. COBERTURA Y DIFERENCIAS DE PROCESAMIENTO
+===========================================================================================
+  10xx         n= 87, grados= 41, flag= 0, C medio=0.442 %, rango C=0.08-0.96 %
+  Condiciones: Hot rolled: 41; Cold drawn: 27; Spheroidized annealed: 12; Annealed + Cold
+  drawn: 5; Normalized + Cold drawn: 2
+  11xx-12xx    n= 34, grados= 17, flag= 2, C medio=0.271 %, rango C=0.10-0.52 %
+  Condiciones: Hot rolled: 17; Cold drawn: 17
+  13xx-15xx    n= 19, grados=  8, flag= 0, C medio=0.395 %, rango C=0.22-0.51 %
+  Condiciones: Hot rolled: 7; Cold drawn: 6; Annealed + Cold drawn: 4; Normalized: 1;
+  Annealed: 1
+  3xxx-9xxx    n= 50, grados= 19, flag= 7, C medio=0.385 %, rango C=0.10-0.60 %
+  Condiciones: Normalized: 19; Annealed: 19; Quenched & tempered: 12
+  Condiciones candidatas con ambas familias (>= 3 filas): 0.
+  Comparaciones intraproceso realmente evaluables por variable: 0.
+  No se han encontrado comparaciones 10xx vs aleados con tamaños suficientes dentro de la
+  MISMA condición. El contraste global refleja grupos de procesos distintos; no atribuir
+  diferencias medias a los elementos de aleación.
+
+===========================================================================================
+2. ESTADÍSTICOS Y CONTRASTE PRINCIPAL (ALEADOS - 10xx)
+===========================================================================================
+  10xx:
+    UTS (MPa)               n= 87 media=  553.10 mediana=  570.00 DE= 137.48 mín=  295.00 máx=  840.00
+    YS (MPa)                n= 87 media=  384.60 mediana=  380.00 DE= 117.87 mín=  165.00 máx=  580.00
+    Dureza Brinell (HB)     n= 87 media=  161.06 mediana=  167.00 DE=  41.63 mín=   86.00 máx=  248.00
+    Elongación (%)          n= 87 media=   15.44 mediana=   12.00 DE=   5.74 mín=   10.00 máx=   30.00
+    Carbono (% masa)        n= 87 media=    0.44 mediana=    0.43 DE=   0.25 mín=    0.08 máx=    0.96
+  3xxx-9xxx:
+    UTS (MPa)               n= 50 media=  843.94 mediana=  793.00 DE= 233.93 mín=  450.00 máx= 1310.00
+    YS (MPa)                n= 50 media=  606.74 mediana=  477.50 DE= 270.69 mín=  275.00 máx= 1215.00
+    Dureza Brinell (HB)     n= 48 media=  245.10 mediana=  229.00 DE=  68.96 mín=  121.00 máx=  375.00
+    Elongación (%)          n= 50 media=   20.97 mediana=   20.75 DE=   5.44 mín=   11.70 máx=   32.50
+    Carbono (% masa)        n= 50 media=    0.38 mediana=    0.41 DE=   0.14 mín=    0.10 máx=    0.60
+  Diferencias de medias (aleados - 10xx), SOLO descriptivas:
+    UTS (MPa)               Δ=  290.84 MPa  (52.6 % respecto a 10xx)
+    YS (MPa)                Δ=  222.14 MPa  (57.8 % respecto a 10xx)
+    Dureza Brinell (HB)     Δ=   84.05 HB   (52.2 % respecto a 10xx)
+    Elongación (%)          Δ=    5.53 %    (35.8 % respecto a 10xx)
+    Carbono (% masa)        Δ=   -0.06 %C   (-13.0 % respecto a 10xx)
+  Un promedio más alto en aleados no demuestra fortalecimiento por aleación. Los grupos
+  pueden representar distintos porcentajes de C, grados, tratamientos (normalizado,
+  recocido, estirado, temple/revenido) y condiciones de enfriamiento.
+
+===========================================================================================
+3. SENSIBILIDAD AL CARBONO POR FAMILIA
+===========================================================================================
+  Correlaciones informativas: n >= 8 y rango C >= 0.15 %.
+  Pendientes expresadas por incremento de +0.10 puntos porcentuales de carbono.
+  10xx:
+    UTS (MPa)               n= 87 r= 0.934 p= 0.000 rho= 0.963 pendiente=   50.59 MPa/0.1%C; R²=0.872  [INTERPRETABLE CON RESERVAS]
+    YS (MPa)                n= 87 r= 0.653 p= 0.000 rho= 0.679 pendiente=   30.33 MPa/0.1%C; R²=0.426  [INTERPRETABLE CON RESERVAS]
+    Dureza Brinell (HB)     n= 87 r= 0.927 p= 0.000 rho= 0.958 pendiente=   15.21 HB/0.1%C; R²=0.859  [INTERPRETABLE CON RESERVAS]
+    Elongación (%)          n= 87 r=-0.766 p= 0.000 rho=-0.869 pendiente=   -1.73 %/0.1%C; R²=0.587  [INTERPRETABLE CON RESERVAS]
+  3xxx-9xxx:
+    UTS (MPa)               n= 50 r= 0.504 p= 0.000 rho= 0.511 pendiente=   85.52 MPa/0.1%C; R²=0.254  [INTERPRETABLE CON RESERVAS]
+    YS (MPa)                n= 50 r= 0.366 p= 0.009 rho= 0.357 pendiente=   71.85 MPa/0.1%C; R²=0.134  [INTERPRETABLE CON RESERVAS]
+    Dureza Brinell (HB)     n= 48 r= 0.549 p= 0.000 rho= 0.532 pendiente=   29.56 HB/0.1%C; R²=0.301  [INTERPRETABLE CON RESERVAS]
+    Elongación (%)          n= 50 r=-0.546 p= 0.000 rho=-0.523 pendiente=   -2.15 %/0.1%C; R²=0.298  [INTERPRETABLE CON RESERVAS]
+  La pendiente global de un acero aleado NO mide aisladamente el efecto del C: Cr, Ni,
+  Mo, Mn, Si, el tratamiento térmico y su interacción cambian a la vez. Las correlaciones
+  por condición se exportan para controlar parcialmente el proceso.
+
+===========================================================================================
+4. INTERPRETACIÓN METALÚRGICA
+===========================================================================================
+  Aceros simples 10xx: su respuesta habitual en estados no templados depende
+  principalmente del porcentaje de carbono y del enfriamiento. En el campo hipoeutectoide
+  aumentos de %C elevan la fracción de perlita frente a ferrita proeutectoide;
+  generalmente suben UTS, YS y HB y desciende la elongación. La cinética, el tamaño de
+  grano y la deformación previa también influyen; un 10xx templado puede formar
+  martensita.
+  Aceros aleados 3xxx-9xxx: elementos como Mn, Cr, Mo y Ni pueden retrasar las
+  transformaciones difusionales de austenita a ferrita/perlita y desplazar las curvas
+  TTT/CCT. Por ello aumenta la templabilidad: según composición, espesor y enfriamiento,
+  se favorecen perlita más fina, bainita o martensita. Templabilidad NO es sinónimo de
+  dureza máxima.
+  Fortalecimiento adicional: Mn, Ni y Si pueden contribuir por solución sólida; Cr y Mo
+  pueden participar en la formación de carburos aleados y endurecimiento por
+  precipitación en ciclos térmicos adecuados. Si también influye en desoxidación y
+  estabilidad de carburos. La presencia nominal del elemento NO comprueba que existan
+  precipitados específicos.
+  Grupos intermedios: los 11xx-12xx incorporan prácticas de composición orientadas a
+  maquinabilidad (S/P, según grado), y 13xx-15xx presentan Mn elevado. No se deben sumar
+  automáticamente a 10xx: difieren en química y comportamiento de procesamiento.
+  La microestructura final no está observada en el CSV. Sin metalografía, historia
+  térmica, dimensiones o curvas de enfriamiento, las explicaciones anteriores son
+  mecanismos metalúrgicos plausibles, NO fases verificadas experimentalmente en cada
+  registro.
+
+===========================================================================================
+5. DATOS NOMINALES DE Cr, Ni, Mo, Mn Y Si
+===========================================================================================
+  10xx (medianas de datos disponibles; % masa):
+    Cr  =      NA % (cobertura 0/87; rangos completos 0)
+    Ni  =      NA % (cobertura 0/87; rangos completos 0)
+    Mo  =      NA % (cobertura 0/87; rangos completos 0)
+    Mn  =   0.750 % (cobertura 87/87; rangos completos 87)
+    Si  =      NA % (cobertura 0/87; rangos completos 0)
+  3xxx-9xxx (medianas de datos disponibles; % masa):
+    Cr  =   0.650 % (cobertura 7/50; rangos completos 7)
+    Ni  =   1.250 % (cobertura 7/50; rangos completos 7)
+    Mo  =   0.200 % (cobertura 5/50; rangos completos 5)
+    Mn  =   0.800 % (cobertura 50/50; rangos completos 50)
+    Si  =   0.250 % (cobertura 7/50; rangos completos 7)
+  Estos valores representan composiciones nominales de tabla, no química medida por
+  colada. Cuando solo aparece Min o Max se usa ese límite como valor provisional; un
+  elemento sin dato NO equivale a 0 %. No es adecuado inferir fases o precipitados a
+  partir de la tabla de composición solamente.
+
+===========================================================================================
+6. ANOMALÍAS, SENSIBILIDAD Y LIMITACIONES
+===========================================================================================
+  10xx: comparación 'todos' vs 'sin flag_anomalia'
+    UTS (MPa)               n=87 -> 87, Δ media=0.00
+    YS (MPa)                n=87 -> 87, Δ media=0.00
+    Dureza Brinell (HB)     n=87 -> 87, Δ media=0.00
+    Elongación (%)          n=87 -> 87, Δ media=0.00
+    Carbono (% masa)        n=87 -> 87, Δ media=0.00
+  3xxx-9xxx: comparación 'todos' vs 'sin flag_anomalia'
+    UTS (MPa)               n=50 -> 43, Δ media=-27.89
+    YS (MPa)                n=50 -> 43, Δ media=-21.18
+    Dureza Brinell (HB)     n=48 -> 43, Δ media=-7.41
+    Elongación (%)          n=50 -> 43, Δ media=0.73
+    Carbono (% masa)        n=50 -> 43, Δ media=0.01
+  Principales categorías de anomalía (n de registros afectados):
+    3xxx-9xxx    ESCALA_UTS_MPA_KSI            4
+    11xx-12xx    C_MAX_IMPOSIBLE               2
+    3xxx-9xxx    DUREZA_ESCALA_NO_HB           2
+    3xxx-9xxx    YS_MAYOR_UTS                  2
+    3xxx-9xxx    ESCALA_YS_MPA_KSI             1
+  El número de filas no equivale al número de probetas ensayadas. Los valores son
+  nominales y hay posible dependencia entre grados cercanos; por tanto, los p-valores de
+  correlación son exploratorios, no evidencia experimental independiente.
+  Las familias tienen tamaños muestrales posiblemente desiguales. Los faltantes por
+  propiedad reducen n y los datos de dureza HRB no se convierten artificialmente a HB.
+  El rango de carbono C_pct puede proceder del promedio de Min/Max o solo de un límite y
+  NO es necesariamente el contenido real de una colada.
+  La comparación por condición reduce parte de la confusión, pero no controla sección,
+  temperaturas exactas, velocidad de enfriamiento, deformación, contenido preciso de
+  aleantes ni interacciones entre estos factores. No se atribuye causalidad ni se aplica
+  ANOVA a grupos SAE potencialmente no intercambiables.
+  La sensibilidad al excluir anomalías es conservadora: flag_anomalia puede deberse a una
+  sola columna y elimina la fila para todas las variables. Las correcciones del script 01
+  no deben interpretarse como mediciones verificadas.
+
+===========================================================================================
+7. ARCHIVOS GENERADOS
+===========================================================================================
+  - outputs\tablas\tabla_04_descriptivos_por_familia.csv
+  - outputs\tablas\tabla_04_descriptivos_familia_condicion.csv
+  - outputs\tablas\tabla_04_contraste_global_10xx_vs_aleados.csv
+  - outputs\tablas\tabla_04_contrastes_condiciones_comparables.csv
+  - outputs\tablas\tabla_04_diagnostico_condiciones.csv
+  - outputs\tablas\tabla_04_correlaciones_c_vs_propiedades.csv
+  - outputs\tablas\tabla_04_composicion_aleantes.csv
+  - outputs\tablas\tabla_04_diagnostico_familias.csv
+  - outputs\tablas\tabla_04_auditoria_por_familia.csv
+  - outputs\tablas\tabla_04_sensibilidad_anomalias.csv
+  - outputs\figuras\fig04_01_carbono_vs_propiedades_familias.png
+  - outputs\figuras\fig04_02_distribuciones_por_familia.png
+  - outputs\figuras\fig04_03_composicion_nominal_aleantes.png
+  - outputs\figuras\fig04_04_disponibilidad_condiciones.png
+  - outputs\resumen_04_carbono_vs_aleados.txt

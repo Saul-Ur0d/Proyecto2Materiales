@@ -1,0 +1,5 @@
+﻿Familia_SAE,n_registros,n_grados_SAE,n_anomalias,pct_anomalias,n_condiciones,condicion_mas_frecuente,distribucion_condiciones,C_pct_media,C_pct_min,C_pct_max
+Carbono simple 10xx,87,41,0,0.0,5,Hot rolled,Hot rolled: 41; Cold drawn: 27; Spheroidized annealed: 12; Annealed + Cold drawn: 5; Normalized + Cold drawn: 2,0.441896551724138,0.08,0.965
+Resulfurados/Refosforados 11xx-12xx,34,17,2,5.88235294117647,2,Hot rolled,Hot rolled: 17; Cold drawn: 17,0.2705882352941177,0.105,0.515
+Alto Mn 13xx-15xx,19,8,0,0.0,5,Hot rolled,Hot rolled: 7; Cold drawn: 6; Annealed + Cold drawn: 4; Normalized: 1; Annealed: 1,0.39473684210526316,0.22,0.51
+Aleados 3xxx-9xxx,50,19,7,14.000000000000002,3,Normalized,Normalized: 19; Annealed: 19; Quenched & tempered: 12,0.3846,0.105,0.6

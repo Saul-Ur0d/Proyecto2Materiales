@@ -1,0 +1,6 @@
+﻿Condicion_Grupo,n_registros,n_grados,Tipo_Proceso,pct_estirado_en_frio,familias_SAE,pct_aleados,C_pct_media,C_pct_min,C_pct_max,Temp_C_media,n_flag_anomalia,n_atipicos_IQR,variables_sin_variabilidad,condicion_mas_frecuente
+Annealed,20,20,Térmico puro,0.0,Aleados 3xxx-9xxx: 19; Alto Mn 13xx-15xx: 1,95.0,0.366,0.105,0.6,833.5,2,0,,Annealed at 815 °C (1500 °F)
+Normalized,20,20,Térmico puro,0.0,Aleados 3xxx-9xxx: 19; Alto Mn 13xx-15xx: 1,95.0,0.366,0.105,0.6,880.5,3,1,,Normalized at 870 °C (1600 °F)
+Annealed + Cold drawn,9,9,Térmico + estirado en frío,100.0,Carbono simple 10xx: 5; Alto Mn 13xx-15xx: 4,0.0,0.483,0.4,0.55,,0,4,,"Annealed, cold drawn"
+Spheroidized annealed,12,12,Térmico + estirado en frío,100.0,Carbono simple 10xx: 12,0.0,0.786,0.6,0.965,,0,5,Elongación (%),"Spheroidized annealed, cold drawn"
+Normalized + Cold drawn,2,2,Térmico + estirado en frío,100.0,Carbono simple 10xx: 2,0.0,0.435,0.435,0.435,,0,0,Dureza Brinell (HB); Elongación (%),"Normalized, cold drawn"

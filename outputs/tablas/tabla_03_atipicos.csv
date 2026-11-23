@@ -1,0 +1,11 @@
+﻿Condicion_Grupo,variable,clave,registro,SAE Grade,valor,limite_inferior,limite_superior,flag_anomalia,categorias_auditoria
+Normalized,Elongación (%),ELONG,157,4419,32.5,9.749999999999998,31.950000000000003,False,
+Annealed + Cold drawn,UTS (MPa),UTS,52,1045,585.0,605.0,685.0,False,
+Annealed + Cold drawn,Dureza Brinell (HB),HB,52,1045,170.0,172.0,204.0,False,
+Annealed + Cold drawn,Elongación (%),ELONG,52,1045,12.0,10.0,10.0,False,
+Annealed + Cold drawn,Elongación (%),ELONG,55,1046,12.0,10.0,10.0,False,
+Spheroidized annealed,Dureza Brinell (HB),HB,65,1060,183.0,188.875,193.875,False,
+Spheroidized annealed,Dureza Brinell (HB),HB,67,1064,183.0,188.875,193.875,False,
+Spheroidized annealed,Dureza Brinell (HB),HB,69,1065,187.0,188.875,193.875,False,
+Spheroidized annealed,Dureza Brinell (HB),HB,85,1090,197.0,188.875,193.875,False,
+Spheroidized annealed,Dureza Brinell (HB),HB,87,1095,197.0,188.875,193.875,False,

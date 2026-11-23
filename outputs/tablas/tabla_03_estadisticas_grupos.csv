@@ -1,0 +1,31 @@
+﻿Condicion_Grupo,variable,n,media,mediana,desv_est,min,max,n_valores_unicos
+Annealed,UTS (MPa),20,653.15,680.0,96.72384727449042,450.0,820.0,20
+Annealed,YS (MPa),20,399.65,414.5,56.90460623294318,275.0,485.0,16
+Annealed,Dureza Brinell (HB),19,187.73684210526315,197.0,28.534271996365586,121.0,229.0,11
+Annealed,Elongación (%),20,24.4,22.75,4.390540069884701,17.2,31.3,17
+Annealed,%C (C_pct),20,0.366,0.405,0.14268662755917433,0.105,0.6,8
+Annealed,Temperatura de tratamiento (°C),20,833.5,827.5,28.474365202480115,795.0,915.0,12
+Normalized,UTS (MPa),20,859.8,879.0,194.73777240176085,515.0,1282.0,17
+Normalized,YS (MPa),20,549.8,564.0,133.79937848962723,350.0,862.0,20
+Normalized,Dureza Brinell (HB),19,248.52631578947367,255.0,55.40594474828755,143.0,363.0,15
+Normalized,Elongación (%),20,20.84,20.75,5.275903514540126,11.7,32.5,19
+Normalized,%C (C_pct),20,0.366,0.405,0.14268662755917433,0.105,0.6,8
+Normalized,Temperatura de tratamiento (°C),20,880.5,870.0,23.164173789894193,855.0,955.0,8
+Annealed + Cold drawn,UTS (MPa),9,642.2222222222222,650.0,26.470633623780987,585.0,675.0,8
+Annealed + Cold drawn,YS (MPa),9,545.0,550.0,25.617376914898998,505.0,585.0,8
+Annealed + Cold drawn,Dureza Brinell (HB),9,186.44444444444446,187.0,8.094922963053927,170.0,197.0,8
+Annealed + Cold drawn,Elongación (%),9,10.444444444444445,10.0,0.8819171036881968,10.0,12.0,2
+Annealed + Cold drawn,%C (C_pct),9,0.4833333333333333,0.48,0.041982139059366666,0.4,0.55,8
+Annealed + Cold drawn,Temperatura de tratamiento (°C),0,,,,,,0
+Spheroidized annealed,UTS (MPa),12,659.5833333333334,660.0,28.481120807023068,615.0,695.0,10
+Spheroidized annealed,YS (MPa),12,509.1666666666667,507.5,21.40872096444188,475.0,540.0,11
+Spheroidized annealed,Dureza Brinell (HB),12,190.91666666666666,192.0,4.5016831868926,183.0,197.0,4
+Spheroidized annealed,Elongación (%),12,10.0,10.0,0.0,10.0,10.0,1
+Spheroidized annealed,%C (C_pct),12,0.7862499999999999,0.8,0.11685509674962251,0.6,0.965,10
+Spheroidized annealed,Temperatura de tratamiento (°C),0,,,,,,0
+Normalized + Cold drawn,UTS (MPa),2,592.5,592.5,10.606601717798213,585.0,600.0,2
+Normalized + Cold drawn,YS (MPa),2,510.0,510.0,7.0710678118654755,505.0,515.0,2
+Normalized + Cold drawn,Dureza Brinell (HB),2,179.0,179.0,0.0,179.0,179.0,1
+Normalized + Cold drawn,Elongación (%),2,12.0,12.0,0.0,12.0,12.0,1
+Normalized + Cold drawn,%C (C_pct),2,0.435,0.435,0.0,0.435,0.435,1
+Normalized + Cold drawn,Temperatura de tratamiento (°C),0,,,,,,0
