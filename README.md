@@ -3,7 +3,9 @@
 Miembros del equipo:
 **
     Meza Prieto Adriel
+    
     Uriostegui Rogríguez Adolfo Saúl
+    
     Vega Hurtado Mildred Dessire
 **
 Pipeline reproducible en **Python** para limpiar, auditar y analizar una base de **190 registros y 27 columnas** con composición química y propiedades mecánicas de aceros SAE. Estudia la relación entre **%C**, resistencia última (UTS), límite de fluencia (YS), dureza Brinell (HB), elongación, condiciones de procesamiento y familias SAE. Los resultados se presentan mediante figuras, tablas y un **dashboard HTML interactivo** publicable en GitHub Pages.
